@@ -1,9 +1,28 @@
-### Migerations
+## Migerations
 
-- it will generate migeration as per `drizzle.config.ts`
+
+
+### What is Migeration
+
+- A set of instructions (usually SQL or ORM-generated code) that transforms the current state of your database schema into a new desired state.
+- It is basically a delta (difference) between two schema versions.
+
+- below will Creates a drizzle.config.ts file.
+```
+npx drizzle-kit init
+
+```
+
+
+- below  will generate migeration as per `drizzle.config.ts`
 
 ```
 npx drizzle-kit generate
+```
+
+
+```
+npx drizzle-kit migrate
 ```
 
 - for this project
@@ -57,6 +76,12 @@ npm run gen-migeration
 - to delete migeration
 ```
 npm run del-migeration
+```
+
+- New Cli command to  migerate 
+
+```
+npx drizzle-kit migrate
 ```
 
 

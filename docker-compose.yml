@@ -1,0 +1,24 @@
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: shubham
+      POSTGRES_PASSWORD: shubham
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - drizzle_learning_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer_container
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  drizzle_learning_data:

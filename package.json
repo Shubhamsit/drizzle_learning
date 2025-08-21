@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/index.ts",
-    "gen-migeration":"npx drizzle-kit generate",
-    "del-migeration":"npx drizzle-kit drop"
+    "gen-migeration": "npx drizzle-kit generate",
+    "del-migeration": "npx drizzle-kit drop"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +21,10 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.3.7",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.44.4",
-    "pg": "^8.16.3"
+    "pg": "^8.16.3",
+    "postgres": "^3.4.7"
   }
 }

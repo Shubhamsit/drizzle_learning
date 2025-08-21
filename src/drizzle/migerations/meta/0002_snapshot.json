@@ -1,6 +1,6 @@
 {
-  "id": "314baa01-003b-4248-9032-8beb1daded42",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "a7f0c588-437d-4f7b-8121-5debedba451e",
+  "prevId": "3283f358-c9e8-4d6d-a12e-4239bf11f988",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -30,6 +30,18 @@
         "age": {
           "name": "age",
           "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "x": {
+          "name": "x",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         }
