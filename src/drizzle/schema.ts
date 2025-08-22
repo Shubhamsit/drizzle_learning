@@ -1,3 +1,4 @@
+import { Many, relations } from "drizzle-orm";
 import {
   pgTable,
   uuid,
@@ -23,7 +24,6 @@ export const UserTable = pgTable(
 
     name: varchar("name", { length: 255 }).notNull(),
     age: integer("age").notNull(),
-    x: integer().notNull(),
     email: varchar("email", { length: 255 }).notNull().unique(),
     role: UserRole("userRole").default("BASIC").notNull(),
   },
@@ -94,3 +94,18 @@ export const PostCategoryTable = pgTable(
     };
   }
 );
+
+
+
+
+// Relations
+
+
+export const userTableRelations=relations(UserTable,({one,many})=>{
+return{
+
+  prefrences:one(UserPrefrencesTable),
+  post:many(PostTable)
+}
+
+})
