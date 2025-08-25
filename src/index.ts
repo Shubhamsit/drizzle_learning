@@ -5,10 +5,8 @@ import { query } from "./query.js";
 
 async function main() {
 
-//   insert();
+  insert();
   query()
-
-
 }
 
 main();

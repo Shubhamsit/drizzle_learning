@@ -1,4 +1,4 @@
-import { UserTable } from "./drizzle/schema.js";
+import { UserPrefrencesTable, UserTable } from "./drizzle/schema.js";
 import { db } from "./drizzle/db.js";
 
 export async function insert() {
@@ -21,7 +21,7 @@ export async function insert() {
 
   // its return type is   [ { id: 'df213cc2-15fd-4347-acf5-ae395f134805', name: 'shubham' } ], array of objects
 
-  console.log(user);
+  // console.log(user);
 
   //------------------------------------to insert multiple rows at same time --------------
 
@@ -50,6 +50,10 @@ export async function insert() {
     });
 
 
+    await db.insert(UserPrefrencesTable).values({
+      emailUpdates:true,
+      userId:"861546c5-be67-4708-9868-573f83f19aef"
+    })
 
 
     // now will see about upsert like onConflictDoUpdate

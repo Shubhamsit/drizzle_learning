@@ -95,17 +95,54 @@ export const PostCategoryTable = pgTable(
   }
 );
 
-
-
-
 // Relations
 
+export const userTableRelations = relations(UserTable, ({ one, many }) => {
+  return {
+    prefrences: one(UserPrefrencesTable),
+    post: many(PostTable),
+  };
+});
 
-export const userTableRelations=relations(UserTable,({one,many})=>{
-return{
+export const userPrefrencesTableRelations = relations(
+  UserPrefrencesTable,
+  ({ one, many }) => {
+    return {
+      user: one(UserTable, {
+        fields: [UserPrefrencesTable.userId],
+        references: [UserTable.id],
+      }),
+    };
+  }
+);
 
-  prefrences:one(UserPrefrencesTable),
-  post:many(PostTable)
-}
+export const PostTableRelations = relations(PostTable, ({ one, many }) => {
+  return {
+    author: one(UserTable, {
+      fields: [PostTable.authorId],
+      references: [UserTable.id],
+    }),
+    PostCategories:many(PostCategoryTable)
+  };
+});
 
-})
+
+export const CategoryTableRelations = relations(CategoryTable, ({ one, many }) => {
+  return {
+    PostCategories: many(PostTable),
+  };
+});
+
+
+export const PostCategoryTableRelations = relations(PostCategoryTable, ({ one, many }) => {
+  return {
+    post: one(PostTable, {
+      fields: [PostCategoryTable.postId],
+      references: [PostTable.id],
+    }),
+    category: one(CategoryTable, {
+      fields: [PostCategoryTable.categoryId],
+      references: [CategoryTable.id],
+    }),
+  };
+});
